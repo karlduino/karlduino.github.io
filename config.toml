@@ -18,7 +18,7 @@ copyright = "The text in this work is licensed under CC-BY-4.0, https://creative
 
 [[menu.main]]
     name = "about"
-    url = "https://karlduino.github.io/about"
+    url = "https://karlduino.org/about"
 [[menu.main]]
     name = "github"
     url = "https://github.com/karlduino"
@@ -28,7 +28,7 @@ unsafe= true
 
 [params]
     description = "Karlduino: exploring arduino and other electronic stuff"
-    fullUrl = "https://karlduino.github.io"
+    fullUrl = "https://karlduino.org"
     githubContentUrl = "https://github.com/karlduino/karlduino.github.io/edit/source/content/"
     customCSS = ["css/custom.css"]
 
