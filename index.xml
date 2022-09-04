@@ -1,0 +1,45 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>karlduino</title>
+    <link>/</link>
+    <description>Recent content on karlduino</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>The text in this work is licensed under CC-BY-4.0, https://creativecommons.org/licenses/by/4.0/legalcode; code licensed under the MIT license</copyright>
+    <lastBuildDate>Sun, 04 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>about</title>
+      <link>/about/</link>
+      <pubDate>Sun, 04 Sep 2022 14:24:00 -0500</pubDate>
+      
+      <guid>/about/</guid>
+      <description>&lt;p&gt;University professor tinkering with electronics,
+particularly &lt;a href=&#34;https://arduino.cc&#34;&gt;Arduino&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/karlduino&#34;&gt;Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://karlduino.wordpress.com&#34;&gt;Old wordpress site&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The source for this site is at &lt;a href=&#34;https://github.com/karlduino/karlduino.github.io&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>New website</title>
+      <link>/2022/09/04/new-website/</link>
+      <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/09/04/new-website/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m working on a new project (&lt;a href=&#34;https://github.com/karlduino/CO2monitor&#34;&gt;a low-cost CO2
+monitor&lt;/a&gt;), which inspired me
+to create a new website.&lt;/p&gt;
+&lt;p&gt;My &lt;a href=&#34;https://karlduino.wordpress.com&#34;&gt;old website&lt;/a&gt; is now pretty old
+(last post 2014-01-14), and I just don&amp;rsquo;t want to touch Wordpress
+anymore.&lt;/p&gt;
+&lt;p&gt;But I feel inspired to get back into it, so why not start fresh?&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

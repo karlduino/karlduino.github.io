@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on karlduino</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on karlduino</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>The text in this work is licensed under CC-BY-4.0, https://creativecommons.org/licenses/by/4.0/legalcode; code licensed under the MIT license</copyright>
+    <lastBuildDate>Sun, 04 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New website</title>
+      <link>/2022/09/04/new-website/</link>
+      <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/09/04/new-website/</guid>
+      <description>I&amp;rsquo;m working on a new project (a low-cost CO2 monitor), which inspired me to create a new website.
+My old website is now pretty old (last post 2014-01-14), and I just don&amp;rsquo;t want to touch Wordpress anymore.
+But I feel inspired to get back into it, so why not start fresh?</description>
+    </item>
+    
+  </channel>
+</rss>
