@@ -18,10 +18,13 @@ copyright = "The text in this work is licensed under CC-BY-4.0, https://creative
 
 [[menu.main]]
     name = "about"
-    url = "https://karlduino.org/about"
+    url = "/about"
 [[menu.main]]
     name = "github"
     url = "https://github.com/karlduino"
+[[menu.main]]
+    name = "projects"
+    url = "/projects"
 
 [markup.goldmark.renderer]
 unsafe= true
