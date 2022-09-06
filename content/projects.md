@@ -17,3 +17,7 @@ date: "2022-09-05T19:10:00-05:00"
 - [Crazy Arduino Yún solution to a router problem](https://karlduino.wordpress.com/2014/01/08/crazy-arduino-yun-solution-to-a-router-problem/)
 
   ![Arduino Yun in a clear box, with blue, yellow, green, and red LEDs](https://karlduino.files.wordpress.com/2014/01/arduino_yun_1.jpg?w=450&h=337)
+
+- [Electronics birthday party](https://karlduino.wordpress.com/2013/04/29/electronics-birthday-party/)
+
+  ![Parts for electronics birthday party: instructions, notebook and pencil, googles, paper plate with breadboard, 9v battery, and a bunch of electronics parts](https://karlduino.files.wordpress.com/2013/04/activity_setting.jpg?w=450&h=336)
