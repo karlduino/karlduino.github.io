@@ -10,6 +10,28 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>projects</title>
+      <link>/projects/</link>
+      <pubDate>Mon, 05 Sep 2022 19:10:00 -0500</pubDate>
+      
+      <guid>/projects/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://karlduino.org/CO2monitor&#34;&gt;CO~2~ monitor&lt;/a&gt; based on the
+&lt;a href=&#34;https://senseair.com/products/size-counts/s8-lp/&#34;&gt;SenseAir S8
+sensor&lt;/a&gt; and an &lt;a href=&#34;https://store.arduino.cc/products/arduino-nano-every&#34;&gt;Arduino Nano Every&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://karlduino.org/CO2monitor/docs/pics/co2monitor.jpg&#34;&gt;&lt;img src=&#34;https://karlduino.org/CO2monitor/docs/pics/co2monitor_sm.jpg&#34; alt=&#34;CO2 monitor tied to a wooden post with a pink cord&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://karlduino.wordpress.com/2012/09/23/arduinoxbee-garage-door-indicator/&#34;&gt;Arduino/Xbee garage door indicator&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://karlduino.files.wordpress.com/2012/09/indicators_exterior.jpg?w=300&amp;amp;h=225&#34; alt=&#34;exterior of garage indicator box, a cigar box with a yellow power light, small red/green LEDs for a small garage door, and large red/green LEDs for a large garage door&#34;&gt;
+&lt;img src=&#34;https://karlduino.files.wordpress.com/2012/09/remote_installed.jpg?w=300&amp;amp;h=225&#34; alt=&#34;black box on garage ceiling connected to reed circuits to detect open/close status&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>about</title>
       <link>/about/</link>
       <pubDate>Sun, 04 Sep 2022 14:24:00 -0500</pubDate>
