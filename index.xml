@@ -6,7 +6,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>The text in this work is licensed under CC-BY-4.0, https://creativecommons.org/licenses/by/4.0/legalcode; code licensed under the MIT license</copyright>
-    <lastBuildDate>Sun, 04 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Sep 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -40,6 +40,19 @@ sensor&lt;/a&gt; and an &lt;a href=&#34;https://store.arduino.cc/products/arduin
     </item>
     
     <item>
+      <title>projects page</title>
+      <link>/2022/09/06/projects-page/</link>
+      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/09/06/projects-page/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ll be slow getting started here. But note that I added a &lt;a href=&#34;./projects&#34;&gt;projects
+page&lt;/a&gt;, pointing to &lt;a href=&#34;https://github.com/karlduino/CO2monitor&#34;&gt;my
+current&lt;/a&gt;) and a few of my old
+projects.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>about</title>
       <link>/about/</link>
       <pubDate>Sun, 04 Sep 2022 14:24:00 -0500</pubDate>
@@ -57,7 +70,7 @@ particularly &lt;a href=&#34;https://arduino.cc&#34;&gt;Arduino&lt;/a&gt;.&lt;/p
     </item>
     
     <item>
-      <title>New website</title>
+      <title>new website</title>
       <link>/2022/09/04/new-website/</link>
       <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
       
