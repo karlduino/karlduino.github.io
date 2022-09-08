@@ -90,3 +90,8 @@ a.archive-item-link {
 a.archive-item-link:hover {
     background-color: #cdb1ea;
 }
+
+/* for hiding email */
+#hide_email b {
+    display: none;
+}
