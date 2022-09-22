@@ -75,10 +75,76 @@ using, and it seems to be giving measurements that are too high.
 
 ### Google forms to gather data
 
+We've been using a [google
+form](https://docs.google.com/forms/d/e/1FAIpQLSdxHELs5_nhfD2l0LLOn0AP_aOi-45dspcFVoiOKbdar_uYsw/viewform)
+to gather requests for our lending library of CO2 monitors; the
+results are collected in a google sheet. I'd not done this myself.
+(I've basically never gathered data myself.) But it seemed like the
+best option for collecting data from sensors, and so that's where I
+started.
+
+[This
+instructable](https://www.instructables.com/Post-to-Google-Docs-with-Arduino/)
+spelled out the details quite well. They use
+[pushingbox](https://www.pushingbox.com/) as an intermediary between
+the arduino and the google form. (It's not entirely clear to me why;
+maybe to turn an https request into an http one?) But the rest of it
+was quite clear.
+
+But basically we're setting up a google form, grabbing the super-long
+ID for the form, grabbing the weirdly named key identifiers for the
+form elements, and then working out the REST API request that we'd use
+to push data to the form.
+
+First, go to [Google Docs](https://docs.google.com) and click on the
+hamburger button (ie the three lines) in the top-right, and click
+"Forms", then start a new blank form. Give it a name, create a first
+question (as just the variable name you want in the column in the
+final spreadsheet), select "Short answer" in the drop-down menu, and
+then click the plus sign in the circle on the far right to create
+another field, or click the "Send" button on the top-right when you're
+done. You don't really need to send it to anyone, but grab the full
+link to the form, which includes (after `forms/d/e`) the super-long
+form ID that you'll need.
+
+Next, open the form in Firefox and click Ctrl-Shift-I to open the
+"Inspector". Then poke through the html to find the `<form>` element.
+If you poke around inside there, you'll find the `<input>` elements.
+You're looking for their names, as they have the field names that
+google uses, and which you will use when you want to post data
+programmatically. They'll look something like this:
+
+```html
+<input type="hidden" name="entry.1240506587" value="">
+<input type="hidden" name="entry.1745392992" value="">
+```
+
+You want to save those `entry.######` names.
+
+You can now use the web browser to post data to the form, like this:
+
+```
+https://docs.google.com/forms/d/e/SUPER_LONG_FORM_ID/formResponse?submit=Submit&usp=pp_url&entry.1240506587=my_first_entry&entry.1745392992=my_second_entry
+```
+
+You replace the `SUPER_LONG_FORM_ID` with your actual super long form
+identifier, and then the `entry.#####` fields and the values you want
+to post. This is what we'll use when we post data from the
+microcontroller, though first we need to get it connected to wifi. So
+we'll come back to this in a moment.
+
+But before connecting to wifi, go to your form at
+<https://forms.google.com> and you'll find three tabs: Questions,
+Responses, and Settings. If you click Responses, there's a little
+green box with a white cross in it; click that to create a
+spreadsheet to collect your results.
 
 
 ### Wifi
 
+
+
+### Pushing data to google
 
 
 ### Eduroam
