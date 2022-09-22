@@ -253,3 +253,8 @@ also go with the cheapest route, of an
 on eduroam at U Michigan](https://github.com/debsahu/Esp32_EduWiFi)
 suggested that it they could get the ESP32 working but not the
 ESP8266.
+
+If I go with the ESP32, the first steps will be connecting to my
+SenseAir S8 sensor and LCD display. If I can get those to work, then
+I'm confident than it should be immediate to connect to wifi and push
+data to the google form.
