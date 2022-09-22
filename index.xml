@@ -60,13 +60,13 @@ the project includes detailed &lt;a href=&#34;https://karlduino.org/CO2monitor/d
 instructions&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;There were three main challenges that we dealt with.&lt;/p&gt;
 &lt;p&gt;First, the Arduino Nano Every was a bit of a pain, in trying to upload
-a sketch. The Arudino IDE gives lots of error messages for these
+a sketch. The Arduino IDE gives lots of error messages for these
 microcontrollers, and tends to hang. In the end, it seems like you try
 to upload a sketch once and get one error, and then you do it a second
 time and get a different error, but the second time actually works
 (though it is a pretty slow upload).&lt;/p&gt;
 &lt;p&gt;Second, I had a lot of difficulty mounting the Nano Every in the
-plastic box. I would have prefered to have the screws on the outside
+plastic box. I would have preferred to have the screws on the outside
 and the nuts on the inside, but there&amp;rsquo;s not any room for the nuts next
 to the pins, so I did it the other way around. And for many of them, I
 was getting an apparent short-circuit between the screw and the
