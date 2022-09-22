@@ -2,7 +2,7 @@
 title: 'co2 monitors'
 author: Karlduino
 date: '2022-09-22'
-slug: projects-page
+slug: co2-monitors
 categories: [news]
 tags: [news,covid]
 ---
