@@ -18,7 +18,7 @@ have devoted to assessing and improving air quality in campus
 classrooms, meeting rooms, and workspaces. (UW-Madison Facilities has
 an [FAQ on
 HVAC](https://facilities.fpm.wisc.edu/facility-manager-tools/#faq-hvac)
-that is shockingly offensive, even for a completely jaded employee.)
+that is shockingly offensive, even to a completely jaded employee.)
 And with the removal of the
 campus mask mandate at spring break last March, mask-wearing on
 campus has become a rarity.
