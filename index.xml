@@ -6,8 +6,88 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>The text in this work is licensed under CC-BY-4.0, https://creativecommons.org/licenses/by/4.0/legalcode; code licensed under the MIT license</copyright>
-    <lastBuildDate>Tue, 06 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Sep 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>co2 monitors</title>
+      <link>/2022/09/22/projects-page/</link>
+      <pubDate>Thu, 22 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/09/22/projects-page/</guid>
+      <description>&lt;p&gt;My &lt;a href=&#34;https://github.com/karlduino/CO2monitor&#34;&gt;latest project&lt;/a&gt; is a
+low-cost carbon dioxide monitor.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://karlduino.org/CO2monitor/docs/pics/co2monitor.jpg&#34;&gt;&lt;img src=&#34;https://karlduino.org/CO2monitor/docs/pics/co2monitor_sm.jpg&#34; alt=&#34;CO2 monitor tied to a wooden post with a pink cord&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Many workers at UW-Madison have been concerned about air quality on
+campus. The university has not been forthcoming about what effort they
+have devoted to assessing and improving air quality in campus
+classrooms, meeting rooms, and workspaces. (UW-Madison Facilities has
+an &lt;a href=&#34;https://facilities.fpm.wisc.edu/facility-manager-tools/#faq-hvac&#34;&gt;FAQ on
+HVAC&lt;/a&gt;
+that is shockingly offensive, even for a completely jaded employee.)
+And with the removal of the
+campus mask mandate at spring break last March, mask-wearing on
+campus has become a rarity.&lt;/p&gt;
+&lt;p&gt;And so we&amp;rsquo;ve started an effort to help people assess air quality in
+their classrooms and workspaces, beginning with measurement of CO&lt;sub&gt;2&lt;/sub&gt;,
+which can be a good proxy to indicate air ventilation. If
+CO&lt;sub&gt;2&lt;/sub&gt; levels are &amp;gt;1200 ppm, that would indicate that the
+space is not getting adequate fresh air. One could then try to open
+doors and windows to improve ventilation, or if that is not possible,
+could add an air filter such as a hand-made &lt;a href=&#34;https://cleanaircrew.org/box-fan-filters/&#34;&gt;Corsi-Rosenthal
+box&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The main commercial CO&lt;sub&gt;2&lt;/sub&gt; monitor is the
+&lt;a href=&#34;https://aranet.com/products/aranet4/&#34;&gt;Aranet4&lt;/a&gt;, which is really a
+beautiful device: an e-ink display, bluetooth to connect to a
+phone app, accurate measurements, and runs for weeks and weeks on two
+AA batteries. But it costs &lt;strong&gt;$250&lt;/strong&gt;!&lt;/p&gt;
+&lt;p&gt;There are dozens of lower-cost alternatives, from $20-60, but none of
+them seem to work well at all.&lt;/p&gt;
+&lt;p&gt;And so, inspired by
+&lt;a href=&#34;https://github.com/danielbernalb/LibreCO2&#34;&gt;LibreCO2&lt;/a&gt;, I put together
+the simplest possible device using a &lt;a href=&#34;https://senseair.com/products/size-counts/s8-lp/&#34;&gt;SenseAir S8 low power
+sensor&lt;/a&gt;, an &lt;a href=&#34;https://docs.arduino.cc/hardware/nano-every&#34;&gt;Arduino
+Nano Every&lt;/a&gt;, and a 16x2
+LCD display (with an I2C chip). The cost is about $40 for the sensor,
+$10 for the arduino, and $5 for the LCD display, so $65. Plus a
+clear plastic box for 50 cents. If you order the parts from &lt;a href=&#34;https://www.aliexpress.com/&#34;&gt;AliExpress&lt;/a&gt;
+(with a one-month lead time, buying parts for 10, and using a generic
+&lt;a href=&#34;https://www.aliexpress.com/item/2255799923112796.html?spm=a2g0o.order_list.0.0.15e41802Y2Qmjn&#34;&gt;Arduino Nano v3
+clone&lt;/a&gt;),
+you can get the price down to &amp;lt;$35 each.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/karlduino/CO2monitor/&#34;&gt;github repository&lt;/a&gt; for
+the project includes detailed &lt;a href=&#34;https://karlduino.org/CO2monitor/docs/instructions.html&#34;&gt;assembly
+instructions&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There were three main challenges that we dealt with.&lt;/p&gt;
+&lt;p&gt;First, the Arduino Nano Every was a bit of a pain, in trying to upload
+a sketch. The Arudino IDE gives lots of error messages for these
+microcontrollers, and tends to hang. In the end, it seems like you try
+to upload a sketch once and get one error, and then you do it a second
+time and get a different error, but the second time actually works
+(though it is a pretty slow upload).&lt;/p&gt;
+&lt;p&gt;Second, I had a lot of difficulty mounting the Nano Every in the
+plastic box. I would have prefered to have the screws on the outside
+and the nuts on the inside, but there&amp;rsquo;s not any room for the nuts next
+to the pins, so I did it the other way around. And for many of them, I
+was getting an apparent short-circuit between the screw and the
+micro-USB, and so I generally left out one of the planned screws to
+next to the USB.&lt;/p&gt;
+&lt;p&gt;Third, my collaborator on this bought &lt;a href=&#34;https://www.digikey.com/en/products/detail/orient-display/AMC1602AR-B-B6WTDW-I2C/12089223&#34;&gt;some LCD displays from
+Digi-Key&lt;/a&gt;
+that had I2C integrated, but with quite different pin-out from what
+I&amp;rsquo;d been using. It was a bit of a struggle to figure out how to use
+these, and we ended up &lt;a href=&#34;https://github.com/karlduino/CO2monitor/tree/main/CO2monitor_altLCD&#34;&gt;forking the code to a separate
+version&lt;/a&gt;
+for these.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s exciting to have a few of these CO&lt;sub&gt;2&lt;/sub&gt; monitors out on
+campus, measuring air quality. We&amp;rsquo;re getting some data back which is
+in many cases good, but in at least one case very, very bad (the
+dreaded &lt;a href=&#34;https://map.wisc.edu/s/5dryqhg7&#34;&gt;Humanities building&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m so excited that I&amp;rsquo;m now working on replacing the microcontroller
+with one that includes wifi access, to simplify the data gathering
+aspect, and to get more complete data. More to come on that.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>projects</title>
