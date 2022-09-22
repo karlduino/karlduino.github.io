@@ -142,9 +142,114 @@ spreadsheet to collect your results.
 
 ### Wifi
 
+Connecting this ESP32 microcontroller to my home wifi was super easy.
+Adafruit has a straightforward [example on
+github](https://github.com/adafruit/Adafruit_Learning_System_Guides/blob/main/ESP32_S2_WiFi_Tests/WiFiWebClient/WiFiWebClient.ino).
+
+The basics are to define character strings with the SSID and password
+for your wifi. I put these as defined values in a `private.h` file to
+keep them out of the code that I post to github.
+
+Use `#include <Wifi.h>`, and `Wifi.begin(ssid, password)` to connect,
+with `WiFi.status()`, `WiFi.SSID()` and `WiFi.localIP()` to give you
+information about how it's working. Also `WiFi.RSSI()` to get signal
+strength.
+
 
 
 ### Pushing data to google
 
+If you look at that [Adafruit Wifi
+example](https://github.com/adafruit/Adafruit_Learning_System_Guides/blob/main/ESP32_S2_WiFi_Tests/WiFiWebClient/WiFiWebClient.ino),
+it includes a GET request to check that the Wifi connection is useful.
+That's basically what we want to use to push data to our google form.
+But google wants an SSL connection (https rather than just http) which
+adds one small difficulty: you need to grab google's
+SSL certificate and include it within your code. (I followed [this
+tutorial](https://techtutorialsx.com/2017/11/18/esp32-arduino-https-get-request/)
+for the root CA certificate business.)
+
+First, open the site for your google form submission in firefox and
+click on the little lock by the URL. Click "Connection secure" and
+then "More information". Then under "Security", click "View
+certificate". Click the tab that's like "GTS Root R1", then scroll
+down to Miscellaneous and click "PEM (cert)" next to "Download". This
+saves a `.pem` file that is the text of the certificate. Paste that
+into your sketch, adding a bunch of double-quotes and newlines and
+crap, to create a character string containing the full certificate, as
+[in my Arduino sketch for this
+project](https://github.com/karlduino/co2_tft/blob/main/co2_tft.ino#L12-L34).
+
+To push data to the form, you can follow the [WifiClientSecure
+example](https://github.com/espressif/arduino-esp32/tree/master/libraries/WiFiClientSecure/examples/WiFiClientSecure)
+with arduino-esp32 on github.
+
+You use `WifiClientSecure client;` to define the container that will
+be the connection to a web server. You use
+`client.setCACert(root_ca);` to use the root certificate that you'd
+downloaded, build up the URL for the GET call to post data to the
+google form, and then use `client.connect(api_host, httpPort)` to
+connect to the google server, `client.print()` to dump your form data,
+and `client.stop()` to close the connection.
+
+Make sure to put in some code that ensures that the data gets posted
+only every once in a while, like once a minute, or two or five
+minutes.
+
+Go to your google sheet for the responses to your form, to watch your
+data accrue.
+
 
 ### Eduroam
+
+So the last thing, and the one that I was most concerned about, was
+connecting to Wifi at my university, which uses
+[eduroam](https://eduroam.org). An advantage here is that, if I can
+get the device to connect, it will be able to connect in any building
+on campus. The disadvantage is that whenever I get a new linux laptop,
+it seems a bit of a mess to get it to connect to eduroam.
+
+Happily though, in this case it was surprisingly easy. I was able to
+follow the [WifiClientEnterprise
+example](https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/examples/WiFiClientEnterprise/WiFiClientEnterprise.ino),
+and for UW-Madison, I didn't need any sort of certificate file, but
+just the EAP_USERNAME and EAP_PASSWORD, which I agained defined in the
+`private.h` file not included in the github repository.
+
+Again, I was able to connect to wifi at work via eduroam just as
+easily as I was able to do so on my home network.
+But your company or university setup may be more complicated and
+difficult. Consider [this
+repository](https://github.com/martinius96/ESP32-eduroam), and also
+[this one](https://github.com/debsahu/Esp32_EduWiFi), the latter has
+an accompanying [youtube video
+tutorial](https://www.youtube.com/watch?v=bABHeMea-P0).
+
+### Next steps
+
+So I was able to show (using a different microcontroller and a
+different sensor) that I could measure CO2 levels and use a Wifi
+connection and a google form to push the data to a google spreadsheet.
+But the particular microcontroller and sensor I was using here are too
+expensive to put into practice. Instead, I want to be able to
+substitute a simple wifi-enabled microcontroller into the [small build
+that I already have](https://karlduino.org/CO2monitor), and as cheaply
+as possible.
+
+Probably I'll end up going with a relatively generic [ESP32
+microcontroller](https://en.wikipedia.org/wiki/ESP32); it seems like
+you can get them for about $6 each if you buy a multi-pack. But I'm
+also going to try the [Arduino Nano 33
+IoT](https://store.arduino.cc/products/arduino-nano-33-iot) and the
+[Arduino Nano RP2040
+Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect).
+They're more expensive but could more easily be fit into my existing
+boxes. The [Raspberry Pi Pico
+W](https://www.raspberrypi.com/news/raspberry-pi-pico-w-your-6-iot-platform/)
+seems like it could also work, but it also seems like it'll be quite a
+different toolchain, for the software development aspects. I could
+also go with the cheapest route, of an
+[ESP8266](https://en.wikipedia.org/wiki/ESP8266), though the [tutorial
+on eduroam at U Michigan](https://github.com/debsahu/Esp32_EduWiFi)
+suggested that it they could get the ESP32 working but not the
+ESP8266.
