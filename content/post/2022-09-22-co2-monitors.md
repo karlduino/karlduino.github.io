@@ -3,8 +3,8 @@ title: 'co2 monitors'
 author: Karlduino
 date: '2022-09-22'
 slug: co2-monitors
-categories: [news]
-tags: [news,covid]
+categories: [projects]
+tags: [covid,arduino]
 ---
 
 My [latest project](https://github.com/karlduino/CO2monitor) is a
