@@ -87,7 +87,7 @@ maybe to turn an https request into an http one?) But the rest of it
 was quite clear.&lt;/p&gt;
 &lt;p&gt;The basic steps are to set up a google form, grab the super-long
 ID for the form, grab the weirdly-named key identifiers for the
-form elements, and then working out the REST API request that we will use
+form elements, and then work out the REST API request that we will use
 to push data to the form.&lt;/p&gt;
 &lt;p&gt;First, go to &lt;a href=&#34;https://docs.google.com&#34;&gt;Google Docs&lt;/a&gt; and click on the
 hamburger button (i.e., the button with the three lines) in the top-right, and click
