@@ -6,8 +6,220 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>The text in this work is licensed under CC-BY-4.0, https://creativecommons.org/licenses/by/4.0/legalcode; code licensed under the MIT license</copyright>
-    <lastBuildDate>Thu, 22 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>eduroam wifi and google forms with an ESP32</title>
+      <link>/2022/09/23/wifi-eduroam-google-forms/</link>
+      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/09/23/wifi-eduroam-google-forms/</guid>
+      <description>&lt;p&gt;I was excited by our initial success at a &lt;a href=&#34;https://karlduino.org/2022/09/22/co2-monitors/&#34;&gt;low-cost carbon dioxide
+monitor&lt;/a&gt;, so much so
+that I was immediately thinking about how to scale things up, and how
+to get more data and in a less cumbersome way.&lt;/p&gt;
+&lt;p&gt;Our initial build just has a CO&lt;sub&gt;2&lt;/sub&gt; sensor, a simple Arduino
+microcontroller, and an LCD display. It shows the current
+CO&lt;sub&gt;2&lt;/sub&gt; concentration plus the maximum and average since it was
+last turned on. To gather data, we need people to write down those
+values (or take a picture) before they turn it off.&lt;/p&gt;
+&lt;p&gt;What could we do to gather more detailed data, without increasing the
+cost of the device? For about $3, we could add a SD card logger. But
+that would mean pulling out SD cards regularly. And wouldn&amp;rsquo;t we need
+to include a clock?&lt;/p&gt;
+&lt;p&gt;How about using wifi? I had just bought a little &lt;a href=&#34;https://www.adafruit.com/product/5483&#34;&gt;ESP32-S3 TFT
+feather&lt;/a&gt; (mostly because they
+showed it in use with the &lt;a href=&#34;https://www.adafruit.com/product/4867&#34;&gt;SCD-30 CO&lt;sub&gt;2&lt;/sub&gt;
+monitor&lt;/a&gt;, and it just seemed
+really cool with the built-in high-resolution display). These ESP32
+microcontrollers have built-in wifi (and bluetooth). And then I realized that if we logged data
+to a google sheet via a google form, we wouldn&amp;rsquo;t need to worry about
+time, because google would time-stamp all of the entries for us.&lt;/p&gt;
+&lt;p&gt;Surprisingly, I could get this ESP32 up and running with the SCD-30
+sensor, logging data to google sheets, and connected to wifi, and then
+even connected to wifi at the university using
+&lt;a href=&#34;https://eduroam.org&#34;&gt;eduroam&lt;/a&gt;. It was just 4 hours work or so, and
+there very few road blocks.&lt;/p&gt;
+&lt;h3 id=&#34;esp32-with-scd-30&#34;&gt;ESP32 with SCD-30&lt;/h3&gt;
+&lt;p&gt;The first thing was to get the ESP32-S3 TFT feather up and running and
+connected to the SCD-30 sensor. I&amp;rsquo;m going to use the Arduino IDE to
+program it.&lt;/p&gt;
+&lt;p&gt;This was straightforward using the &lt;a href=&#34;https://learn.adafruit.com&#34;&gt;tutorials at
+Adafruit&lt;/a&gt;. The &lt;a href=&#34;https://learn.adafruit.com/adafruit-esp32-s3-tft-feather&#34;&gt;tutorial on ESP32-S3
+TFT feather&lt;/a&gt;
+explains the basics, though actually
+&lt;a href=&#34;https://learn.adafruit.com/adafruit-esp32-s3-tft-feather/using-with-arduino-ide&#34;&gt;the tutorial for the previous version,
+ESP32-S2&lt;/a&gt;,
+is more complete and overall more helpful. Key steps include adding
+an additional Boards Manager URL in the Arduino IDE preferences, and
+then downloading a number of extra libraries,
+including the
+&lt;a href=&#34;https://www.arduino.cc/reference/en/libraries/adafruit-st7735-and-st7789-library/&#34;&gt;Adafruit ST7735 and ST7789
+library&lt;/a&gt;
+for the built-in TFT and the
+&lt;a href=&#34;https://www.arduino.cc/reference/en/libraries/adafruit-scd30/&#34;&gt;Adafruit SCD30
+library&lt;/a&gt;
+for the sensor.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/adafruit_esp32-s3_tft.jpg&#34; alt=&#34;ESP32-S3 TFT connected to SCD-30 sensor, sitting on a breadboard but not soldered&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;d bought a &lt;a href=&#34;https://www.adafruit.com/product/4210&#34;&gt;STEMMA QT cable&lt;/a&gt;
+which made the connection between the board and the sensor
+particularly simple. And combining the &lt;a href=&#34;https://github.com/adafruit/Adafruit_SCD30/blob/master/examples/oled_co2_monitor/oled_co2_monitor.ino&#34;&gt;example for the SCD-30 sensor&lt;/a&gt;
+and the &lt;a href=&#34;https://github.com/adafruit/Adafruit-ST7735-Library/blob/master/examples/graphicstest_feather_esp32s2_tft/graphicstest_feather_esp32s2_tft.ino&#34;&gt;example for the built-in TFT display&lt;/a&gt;,
+it was up and running super-quick. But note that the &lt;a href=&#34;https://www.adafruit.com/product/4867&#34;&gt;SCD-30
+CO&lt;sub&gt;2&lt;/sub&gt; sensor&lt;/a&gt; is more expensive
+than the &lt;a href=&#34;https://senseair.com/products/size-counts/s8-lp/&#34;&gt;SenseAir S8
+sensor&lt;/a&gt; I&amp;rsquo;ve been
+using, and it seems to be giving measurements that are too high.&lt;/p&gt;
+&lt;h3 id=&#34;google-forms-to-gather-data&#34;&gt;Google forms to gather data&lt;/h3&gt;
+&lt;p&gt;We&amp;rsquo;ve been using a &lt;a href=&#34;https://docs.google.com/forms/d/e/1FAIpQLSdxHELs5_nhfD2l0LLOn0AP_aOi-45dspcFVoiOKbdar_uYsw/viewform&#34;&gt;google
+form&lt;/a&gt;
+to gather requests for our lending library of CO&lt;sub&gt;2&lt;/sub&gt; monitors; the
+results are collected in a google sheet. I&amp;rsquo;d not done this myself,
+but it seemed like a great option for collecting data from sensors,
+and so that&amp;rsquo;s where I started.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.instructables.com/Post-to-Google-Docs-with-Arduino/&#34;&gt;This
+instructable&lt;/a&gt;
+spelled out the details quite well. They use
+&lt;a href=&#34;https://www.pushingbox.com/&#34;&gt;pushingbox&lt;/a&gt; as an intermediary between
+the arduino and the google form. (It&amp;rsquo;s not entirely clear to me why;
+maybe to turn an https request into an http one?) But the rest of it
+was quite clear.&lt;/p&gt;
+&lt;p&gt;The basic steps are to set up a google form, grab the super-long
+ID for the form, grab the weirdly-named key identifiers for the
+form elements, and then working out the REST API request that we will use
+to push data to the form.&lt;/p&gt;
+&lt;p&gt;First, go to &lt;a href=&#34;https://docs.google.com&#34;&gt;Google Docs&lt;/a&gt; and click on the
+hamburger button (i.e., the button with the three lines) in the top-right, and click
+&lt;em&gt;Forms&lt;/em&gt;, then start a new blank form. Give it a name, create a first
+question (as just the variable name you want in the column in the
+final spreadsheet), select &lt;em&gt;Short answer&lt;/em&gt; in the drop-down menu, and
+then click the plus sign in the circle on the far right to create
+another field, or click the &lt;em&gt;Send&lt;/em&gt; button on the top-right when you&amp;rsquo;re
+done. You don&amp;rsquo;t really need to send it to anyone, but grab the full
+link to the form, which includes (after &lt;code&gt;forms/d/e&lt;/code&gt;) the super-long
+form ID that you&amp;rsquo;ll need.&lt;/p&gt;
+&lt;p&gt;Next, open the form in Firefox and click Ctrl-Shift-I to open the
+&amp;ldquo;Inspector&amp;rdquo;. Then poke through the html to find the &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt; element.
+If you poke around inside there, you&amp;rsquo;ll find the &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; elements.
+You&amp;rsquo;re looking for their names, as they have the field names that
+google uses, and which you will use when you want to post data
+programmatically. They&amp;rsquo;ll look something like this:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;input type=&amp;#34;hidden&amp;#34; name=&amp;#34;entry.1240506587&amp;#34; value=&amp;#34;&amp;#34;&amp;gt;
+&amp;lt;input type=&amp;#34;hidden&amp;#34; name=&amp;#34;entry.1745392992&amp;#34; value=&amp;#34;&amp;#34;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You want to save those &lt;code&gt;entry.######&lt;/code&gt; names.&lt;/p&gt;
+&lt;p&gt;You can now use the web browser to post data to the form, like this:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://docs.google.com/forms/d/e/SUPER_LONG_FORM_ID/formResponse?submit=Submit&amp;amp;usp=pp_url&amp;amp;entry.1240506587=my_first_entry&amp;amp;entry.1745392992=my_second_entry
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You replace the &lt;code&gt;SUPER_LONG_FORM_ID&lt;/code&gt; with your actual super long form
+identifier, and then the &lt;code&gt;entry.#####&lt;/code&gt; fields and the values you want
+to post. This is what we&amp;rsquo;ll use when we post data from the
+microcontroller, though first we need to get it connected to wifi. So
+we&amp;rsquo;ll come back to this in a moment.&lt;/p&gt;
+&lt;p&gt;But before connecting to wifi, go to your form at
+&lt;a href=&#34;https://forms.google.com&#34;&gt;https://forms.google.com&lt;/a&gt; and you&amp;rsquo;ll find three tabs: Questions,
+Responses, and Settings. If you click Responses, there&amp;rsquo;s a little
+green box with a white cross in it; click that to create a
+spreadsheet to collect your results.&lt;/p&gt;
+&lt;h3 id=&#34;wifi&#34;&gt;Wifi&lt;/h3&gt;
+&lt;p&gt;Connecting this ESP32 microcontroller to my home wifi was super easy.
+Adafruit has a straightforward &lt;a href=&#34;https://github.com/adafruit/Adafruit_Learning_System_Guides/blob/main/ESP32_S2_WiFi_Tests/WiFiWebClient/WiFiWebClient.ino&#34;&gt;example on
+github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The basics are to define character strings with the SSID and password
+for your wifi. I put these as defined values in a &lt;code&gt;private.h&lt;/code&gt; file to
+keep them out of the &lt;a href=&#34;https://github.com/karlduino/co2_tft&#34;&gt;code that I post to github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Use &lt;code&gt;#include &amp;lt;Wifi.h&amp;gt;&lt;/code&gt;, and &lt;code&gt;Wifi.begin(ssid, password)&lt;/code&gt; to connect,
+with &lt;code&gt;WiFi.status()&lt;/code&gt;, &lt;code&gt;WiFi.SSID()&lt;/code&gt; and &lt;code&gt;WiFi.localIP()&lt;/code&gt; to give you
+information about how it&amp;rsquo;s working. Also &lt;code&gt;WiFi.RSSI()&lt;/code&gt; to get signal
+strength.&lt;/p&gt;
+&lt;h3 id=&#34;pushing-data-to-google&#34;&gt;Pushing data to google&lt;/h3&gt;
+&lt;p&gt;If you look at that &lt;a href=&#34;https://github.com/adafruit/Adafruit_Learning_System_Guides/blob/main/ESP32_S2_WiFi_Tests/WiFiWebClient/WiFiWebClient.ino&#34;&gt;Adafruit Wifi
+example&lt;/a&gt;,
+it includes an example GET request.
+That&amp;rsquo;s basically what we want to use to push data to our google form.
+But google wants an SSL connection (https rather than just http) which
+adds one small difficulty: you need to grab google&amp;rsquo;s
+SSL certificate and include it within your code. (I followed &lt;a href=&#34;https://techtutorialsx.com/2017/11/18/esp32-arduino-https-get-request/&#34;&gt;this
+tutorial&lt;/a&gt;
+for the root CA certificate business.)&lt;/p&gt;
+&lt;p&gt;First, go to the google forms site in Firefox, &lt;a href=&#34;https://forms.google.com&#34;&gt;https://forms.google.com&lt;/a&gt;,
+and click on the little lock by the URL. Click &lt;em&gt;Connection secure&lt;/em&gt; and
+then &lt;em&gt;More information&lt;/em&gt;. Then under &lt;em&gt;Security&lt;/em&gt;, click &lt;em&gt;View
+certificate&lt;/em&gt;. Click the tab that&amp;rsquo;s like &lt;em&gt;GTS Root R1&lt;/em&gt; and then scroll
+down to &lt;em&gt;Miscellaneous&lt;/em&gt; and click &lt;em&gt;PEM (cert)&lt;/em&gt; next to &lt;em&gt;Download&lt;/em&gt;. This
+saves a &lt;code&gt;.pem&lt;/code&gt; file that is the text of the certificate. Paste that
+into your sketch, adding a bunch of double-quotes and newlines and
+crap, to create a character string containing the full certificate, as
+&lt;a href=&#34;https://github.com/karlduino/co2_tft/blob/main/co2_tft.ino#L12-L34&#34;&gt;in my Arduino sketch for this
+project&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To push data to the form, you can follow the &lt;a href=&#34;https://github.com/espressif/arduino-esp32/tree/master/libraries/WiFiClientSecure/examples/WiFiClientSecure&#34;&gt;WifiClientSecure
+example&lt;/a&gt;
+with arduino-esp32 on github.&lt;/p&gt;
+&lt;p&gt;You use &lt;code&gt;WifiClientSecure client;&lt;/code&gt; to define the object that will
+be the connection to a web server. You use
+&lt;code&gt;client.setCACert(root_ca);&lt;/code&gt; to use the root certificate that you&amp;rsquo;d
+downloaded. You build up a character string with the URL for the GET call to send data to the
+google form, and then use &lt;code&gt;client.connect(api_host, httpPort)&lt;/code&gt; to
+connect to the google server, &lt;code&gt;client.print()&lt;/code&gt; to dump your form data,
+and &lt;code&gt;client.stop()&lt;/code&gt; to close the connection.&lt;/p&gt;
+&lt;p&gt;Make sure to control how often data gets posted, say once a minute, or
+once every two or five minutes. Mess this up and you can find yourself
+posting data thousands of times per second and then getting banned by
+google.&lt;/p&gt;
+&lt;p&gt;Once you&amp;rsquo;ve gotten things going, go to your google sheet for the
+responses to your form and watch your data accrue.&lt;/p&gt;
+&lt;h3 id=&#34;eduroam&#34;&gt;Eduroam&lt;/h3&gt;
+&lt;p&gt;So the last thing, and the one that I expected to have the most
+trouble with, was
+connecting to Wifi at my university, which uses
+&lt;a href=&#34;https://eduroam.org&#34;&gt;eduroam&lt;/a&gt;. An advantage here is that, if I can
+get the device to connect, it will be able to connect in any building
+on campus. The disadvantage is that whenever I get a new linux laptop,
+it seems a bit of a mess to get it to connect to eduroam.&lt;/p&gt;
+&lt;p&gt;Happily though, in this case it was surprisingly easy. I was able to
+follow the &lt;a href=&#34;https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/examples/WiFiClientEnterprise/WiFiClientEnterprise.ino&#34;&gt;WifiClientEnterprise
+example&lt;/a&gt;,
+and I didn&amp;rsquo;t need any sort of certificate file at UW-Madison, but
+just the EAP_USERNAME and EAP_PASSWORD, which I again defined in the
+&lt;code&gt;private.h&lt;/code&gt; file not included in the &lt;a href=&#34;https://github.com/karlduino/co2_tft&#34;&gt;github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I was able to connect to wifi at work via eduroam just as
+easily as I was able to do so on my home network.
+But your company or university setup may be more complicated and
+difficult. Consider &lt;a href=&#34;https://github.com/martinius96/ESP32-eduroam&#34;&gt;this
+repository&lt;/a&gt;, and also
+&lt;a href=&#34;https://github.com/debsahu/Esp32_EduWiFi&#34;&gt;this one&lt;/a&gt;, which also has
+an accompanying &lt;a href=&#34;https://www.youtube.com/watch?v=bABHeMea-P0&#34;&gt;youtube video
+tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;next-steps&#34;&gt;Next steps&lt;/h3&gt;
+&lt;p&gt;So I was able to show that I could measure CO&lt;sub&gt;2&lt;/sub&gt; levels and use a wifi
+connection and a google form to push the data to a google spreadsheet.
+But the particular microcontroller and sensor I was using here are too
+expensive to put into broad practice. Instead, I want to be able to
+substitute a simple wifi-enabled microcontroller into the &lt;a href=&#34;https://karlduino.org/CO2monitor&#34;&gt;small build
+that I already have&lt;/a&gt;, and as cheaply
+as possible.&lt;/p&gt;
+&lt;p&gt;Probably I&amp;rsquo;ll end up going with a relatively generic &lt;a href=&#34;https://en.wikipedia.org/wiki/ESP32&#34;&gt;ESP32
+microcontroller&lt;/a&gt;; it seems like
+you can get them for about $6 each if you buy a multi-pack. But I&amp;rsquo;m
+also interested in the &lt;a href=&#34;https://store.arduino.cc/products/arduino-nano-33-iot&#34;&gt;Arduino Nano 33
+IoT&lt;/a&gt; and the
+&lt;a href=&#34;https://store.arduino.cc/products/arduino-nano-rp2040-connect&#34;&gt;Arduino Nano RP2040
+Connect&lt;/a&gt;.
+They&amp;rsquo;re more expensive but could more easily be fit into my existing
+boxes. The &lt;a href=&#34;https://www.raspberrypi.com/news/raspberry-pi-pico-w-your-6-iot-platform/&#34;&gt;Raspberry Pi Pico
+W&lt;/a&gt;
+seems like it could also work, but it also seems like it&amp;rsquo;ll be quite a
+different toolchain for the software development aspects. I could
+also go with the cheapest route, of an
+&lt;a href=&#34;https://en.wikipedia.org/wiki/ESP8266&#34;&gt;ESP8266&lt;/a&gt;, though the &lt;a href=&#34;https://github.com/debsahu/Esp32_EduWiFi&#34;&gt;tutorial
+on eduroam at U Michigan&lt;/a&gt;
+suggested that they could get eduroam working on the ESP32 but not on the
+ESP8266.&lt;/p&gt;
+&lt;p&gt;If I go with the ESP32, the first steps will be connecting to my
+SenseAir S8 sensor and LCD display. If I can get those to work, then
+I&amp;rsquo;m confident that the rest will follow (connecting to wifi and pushing
+data to the google form).&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>co2 monitors</title>
