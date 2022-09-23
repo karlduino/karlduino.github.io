@@ -118,7 +118,7 @@ programmatically. They'll look something like this:
 <input type="hidden" name="entry.1745392992" value="">
 ```
 
-You want to save those `entry.######` names.
+You want to save those `entry.###` names.
 
 You can now use the web browser to post data to the form, like this:
 
@@ -127,7 +127,7 @@ https://docs.google.com/forms/d/e/SUPER_LONG_FORM_ID/formResponse?submit=Submit&
 ```
 
 You replace the `SUPER_LONG_FORM_ID` with your actual super long form
-identifier, and then the `entry.#####` fields and the values you want
+identifier, and then the `entry.###` fields and the values you want
 to post. This is what we'll use when we post data from the
 microcontroller, though first we need to get it connected to wifi. So
 we'll come back to this in a moment.
