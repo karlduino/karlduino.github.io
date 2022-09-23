@@ -107,11 +107,11 @@ google uses, and which you will use when you want to post data
 programmatically. They&amp;rsquo;ll look something like this:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;input type=&amp;#34;hidden&amp;#34; name=&amp;#34;entry.1240506587&amp;#34; value=&amp;#34;&amp;#34;&amp;gt;
 &amp;lt;input type=&amp;#34;hidden&amp;#34; name=&amp;#34;entry.1745392992&amp;#34; value=&amp;#34;&amp;#34;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You want to save those &lt;code&gt;entry.######&lt;/code&gt; names.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You want to save those &lt;code&gt;entry.###&lt;/code&gt; names.&lt;/p&gt;
 &lt;p&gt;You can now use the web browser to post data to the form, like this:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://docs.google.com/forms/d/e/SUPER_LONG_FORM_ID/formResponse?submit=Submit&amp;amp;usp=pp_url&amp;amp;entry.1240506587=my_first_entry&amp;amp;entry.1745392992=my_second_entry
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You replace the &lt;code&gt;SUPER_LONG_FORM_ID&lt;/code&gt; with your actual super long form
-identifier, and then the &lt;code&gt;entry.#####&lt;/code&gt; fields and the values you want
+identifier, and then the &lt;code&gt;entry.###&lt;/code&gt; fields and the values you want
 to post. This is what we&amp;rsquo;ll use when we post data from the
 microcontroller, though first we need to get it connected to wifi. So
 we&amp;rsquo;ll come back to this in a moment.&lt;/p&gt;

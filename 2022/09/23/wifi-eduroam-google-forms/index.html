@@ -174,11 +174,11 @@ google uses, and which you will use when you want to post data
 programmatically. They&rsquo;ll look something like this:</p>
 <pre tabindex="0"><code>&lt;input type=&#34;hidden&#34; name=&#34;entry.1240506587&#34; value=&#34;&#34;&gt;
 &lt;input type=&#34;hidden&#34; name=&#34;entry.1745392992&#34; value=&#34;&#34;&gt;
-</code></pre><p>You want to save those <code>entry.######</code> names.</p>
+</code></pre><p>You want to save those <code>entry.###</code> names.</p>
 <p>You can now use the web browser to post data to the form, like this:</p>
 <pre tabindex="0"><code>https://docs.google.com/forms/d/e/SUPER_LONG_FORM_ID/formResponse?submit=Submit&amp;usp=pp_url&amp;entry.1240506587=my_first_entry&amp;entry.1745392992=my_second_entry
 </code></pre><p>You replace the <code>SUPER_LONG_FORM_ID</code> with your actual super long form
-identifier, and then the <code>entry.#####</code> fields and the values you want
+identifier, and then the <code>entry.###</code> fields and the values you want
 to post. This is what we&rsquo;ll use when we post data from the
 microcontroller, though first we need to get it connected to wifi. So
 we&rsquo;ll come back to this in a moment.</p>
