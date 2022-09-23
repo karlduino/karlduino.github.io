@@ -92,7 +92,7 @@ was quite clear.
 
 The basic steps are to set up a google form, grab the super-long
 ID for the form, grab the weirdly-named key identifiers for the
-form elements, and then working out the REST API request that we will use
+form elements, and then work out the REST API request that we will use
 to push data to the form.
 
 First, go to [Google Docs](https://docs.google.com) and click on the
