@@ -319,7 +319,7 @@ sensor&lt;/a&gt; and an &lt;a href=&#34;https://store.arduino.cc/products/arduin
 monitor&lt;/a&gt; using an
 &lt;a href=&#34;https://synthiam.com/Support/Hardware/Esp32-DevKit-v1&#34;&gt;ESP32&lt;/a&gt; with
 wifi to automatically post data to a google spreadsheet&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://karlduino.org/images/wifi_co2_monitor.gif&#34; alt=&#34;Looping video of six CO2 monitors with blinking blue lights, automatically posting data to a google spreadsheet&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://karlduino.org/images/wifi_co2_monitors.gif&#34; alt=&#34;Looping video of six CO2 monitors with blinking blue lights, automatically posting data to a google spreadsheet&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://karlduino.wordpress.com/2012/09/23/arduinoxbee-garage-door-indicator/&#34;&gt;Arduino/Xbee garage door indicator&lt;/a&gt;&lt;/p&gt;
