@@ -7,29 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>The text in this work is licensed under CC-BY-4.0, https://creativecommons.org/licenses/by/4.0/legalcode; code licensed under the MIT license</copyright>
-    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>arduino</title>
-      <link>/tags/arduino/</link>
-      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/arduino/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Mon, 26 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>covid</title>
       <link>/tags/covid/</link>
-      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/covid/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>data logger</title>
+      <link>/tags/data-logger/</link>
+      <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data-logger/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>eduroam</title>
       <link>/tags/eduroam/</link>
-      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/eduroam/</guid>
       <description></description>
@@ -38,18 +38,36 @@
     <item>
       <title>google forms</title>
       <link>/tags/google-forms/</link>
-      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/google-forms/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>google sheets</title>
+      <link>/tags/google-sheets/</link>
+      <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/google-sheets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>wifi</title>
       <link>/tags/wifi/</link>
-      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/wifi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>arduino</title>
+      <link>/tags/arduino/</link>
+      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/arduino/</guid>
       <description></description>
     </item>
     

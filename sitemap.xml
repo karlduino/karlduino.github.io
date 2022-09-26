@@ -2,37 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/categories/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2022/09/26/co2-logged-to-google-sheets/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/covid/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/data-logger/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/eduroam/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/google-forms/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/google-sheets/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/projects/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/wifi/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/tags/arduino/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
-    <lastmod>2022-09-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/covid/</loc>
-    <lastmod>2022-09-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/eduroam/</loc>
-    <lastmod>2022-09-23T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/2022/09/23/wifi-eduroam-google-forms/</loc>
-    <lastmod>2022-09-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/google-forms/</loc>
-    <lastmod>2022-09-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2022-09-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/post/</loc>
-    <lastmod>2022-09-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/projects/</loc>
-    <lastmod>2022-09-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2022-09-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/wifi/</loc>
     <lastmod>2022-09-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/2022/09/22/co2-monitors/</loc>

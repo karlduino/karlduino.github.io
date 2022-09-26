@@ -6,8 +6,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>The text in this work is licensed under CC-BY-4.0, https://creativecommons.org/licenses/by/4.0/legalcode; code licensed under the MIT license</copyright>
-    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Sep 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>co2 monitor that logs data to google sheets</title>
+      <link>/2022/09/26/co2-logged-to-google-sheets/</link>
+      <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/09/26/co2-logged-to-google-sheets/</guid>
+      <description>&lt;p&gt;In my &lt;a href=&#34;https://karlduino.org/2022/09/23/wifi-eduroam-google-forms/&#34;&gt;last
+post&lt;/a&gt;, I
+went through the details of the (surprisingly easy) process of getting the enterprise wifi
+&lt;a href=&#34;https://eduroam.org&#34;&gt;eduroam&lt;/a&gt; to work on an &lt;a href=&#34;https://synthiam.com/Support/Hardware/Esp32-DevKit-v1&#34;&gt;ESP32
+board&lt;/a&gt;, as well
+as logging data to a web-based google spreadsheet using a google form.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve now adapted my &lt;a href=&#34;https://karlduino.org/2022/09/22/co2-monitors/&#34;&gt;CO&lt;sub&gt;2&lt;/sub&gt;
+monitors&lt;/a&gt; to
+automatically log their data to google sheets. I can swap out the
+&lt;a href=&#34;https://store.arduino.cc/products/arduino-nano-every&#34;&gt;Arduino Nano
+Every&lt;/a&gt; for an
+&lt;a href=&#34;https://synthiam.com/Support/Hardware/Esp32-DevKit-v1&#34;&gt;ESP32 board&lt;/a&gt;
+that costs half as much ($5 rather than $10), and everything &lt;a href=&#34;https://karlduino/CO2monitorWifi&#34;&gt;just
+worked&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://karlduino.org/images/wifi_co2_monitors.gif&#34; alt=&#34;Looping video of six CO2 monitors with blinking blue lights, automatically posting data to a google spreadsheet&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I pulled out the arduino, drilled a few more holes in the box,
+and mounted the ESP32. (The mounting is nicer, since I can use the
+larger 4/40 screws rather than those tiny 0/80 ones, and I can orient
+the screws so that the rounded head is on the outside.)&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve got them set up to log the CO&lt;sub&gt;2&lt;/sub&gt; measurements once per minute.
+I also log the maximum and the average, though those aren&amp;rsquo;t really
+needed. The display is the same, and they continue to provide the same
+information to the user, whether or not the wifi connection is
+available. It&amp;rsquo;s convenient that the university has
+&lt;a href=&#34;https://eduroam.org&#34;&gt;eduroam&lt;/a&gt; all over campus, as the wifi connection
+and the data logging should be able to occur anywhere.&lt;/p&gt;
+&lt;p&gt;The code is on &lt;a href=&#34;https://github.com/karlduino/CO2monitorWifi&#34;&gt;github&lt;/a&gt;,
+along with &lt;a href=&#34;https://karlduino.org/CO2monitorWifi/docs/instructions.html&#34;&gt;assembly
+instructions&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>eduroam wifi and google forms with an ESP32</title>

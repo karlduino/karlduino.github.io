@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>google forms on karlduino</title>
-    <link>/tags/google-forms/</link>
-    <description>Recent content in google forms on karlduino</description>
+    <title>data logger on karlduino</title>
+    <link>/tags/data-logger/</link>
+    <description>Recent content in data logger on karlduino</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>The text in this work is licensed under CC-BY-4.0, https://creativecommons.org/licenses/by/4.0/legalcode; code licensed under the MIT license</copyright>
-    <lastBuildDate>Mon, 26 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/google-forms/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/data-logger/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>co2 monitor that logs data to google sheets</title>
       <link>/2022/09/26/co2-logged-to-google-sheets/</link>
@@ -16,16 +16,6 @@
       <guid>/2022/09/26/co2-logged-to-google-sheets/</guid>
       <description>In my last post, I went through the details of the (surprisingly easy) process of getting the enterprise wifi eduroam to work on an ESP32 board, as well as logging data to a web-based google spreadsheet using a google form.
 I&amp;rsquo;ve now adapted my CO2 monitors to automatically log their data to google sheets. I can swap out the Arduino Nano Every for an ESP32 board that costs half as much ($5 rather than $10), and everything just worked.</description>
-    </item>
-    
-    <item>
-      <title>eduroam wifi and google forms with an ESP32</title>
-      <link>/2022/09/23/wifi-eduroam-google-forms/</link>
-      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/2022/09/23/wifi-eduroam-google-forms/</guid>
-      <description>I was excited by our initial success at a low-cost carbon dioxide monitor, so much so that I was immediately thinking about how to scale things up, and how to get more data and in a less cumbersome way.
-Our initial build just has a CO2 sensor, a simple Arduino microcontroller, and an LCD display. It shows the current CO2 concentration plus the maximum and average since it was last turned on.</description>
     </item>
     
   </channel>

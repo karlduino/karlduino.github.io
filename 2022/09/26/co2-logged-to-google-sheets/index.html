@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.102.3" />
+
+
+<title>co2 monitor that logs data to google sheets - karlduino</title>
+<meta property="og:title" content="co2 monitor that logs data to google sheets - karlduino">
+
+
+  <link href='../../../../favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../css/main.css" media="all">
+
+<link rel="stylesheet" href="../../../../css/custom.css">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../" class="nav-logo">
+    <img src="../../../../images/karlduino.jpg"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <a href="../../../../" class="nav-title">karlduino</a>
+
+  <ul class="nav-links">
+    
+    <li><a href="../../../../about">
+            <img alt="about" src="../../../../images/about_logo.png" class="nav-link"/>
+            </a></li>
+    
+    <li><a href="https://github.com/karlduino">
+            <img alt="github" src="../../../../images/github_logo.png" class="nav-link"/>
+            </a></li>
+    
+    <li><a href="../../../../projects">
+            <img alt="projects" src="../../../../images/projects_logo.png" class="nav-link"/>
+            </a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">co2 monitor that logs data to google sheets</h1>
+
+    
+    <span class="article-date">2022-09-26</span>
+    
+
+    <div class="article-content">
+      <p>In my <a href="https://karlduino.org/2022/09/23/wifi-eduroam-google-forms/">last
+post</a>, I
+went through the details of the (surprisingly easy) process of getting the enterprise wifi
+<a href="https://eduroam.org">eduroam</a> to work on an <a href="https://synthiam.com/Support/Hardware/Esp32-DevKit-v1">ESP32
+board</a>, as well
+as logging data to a web-based google spreadsheet using a google form.</p>
+<p>I&rsquo;ve now adapted my <a href="https://karlduino.org/2022/09/22/co2-monitors/">CO<sub>2</sub>
+monitors</a> to
+automatically log their data to google sheets. I can swap out the
+<a href="https://store.arduino.cc/products/arduino-nano-every">Arduino Nano
+Every</a> for an
+<a href="https://synthiam.com/Support/Hardware/Esp32-DevKit-v1">ESP32 board</a>
+that costs half as much ($5 rather than $10), and everything <a href="https://karlduino/CO2monitorWifi">just
+worked</a>.</p>
+<p><img src="https://karlduino.org/images/wifi_co2_monitors.gif" alt="Looping video of six CO2 monitors with blinking blue lights, automatically posting data to a google spreadsheet"></p>
+<p>I pulled out the arduino, drilled a few more holes in the box,
+and mounted the ESP32. (The mounting is nicer, since I can use the
+larger 4/40 screws rather than those tiny 0/80 ones, and I can orient
+the screws so that the rounded head is on the outside.)</p>
+<p>I&rsquo;ve got them set up to log the CO<sub>2</sub> measurements once per minute.
+I also log the maximum and the average, though those aren&rsquo;t really
+needed. The display is the same, and they continue to provide the same
+information to the user, whether or not the wifi connection is
+available. It&rsquo;s convenient that the university has
+<a href="https://eduroam.org">eduroam</a> all over campus, as the wifi connection
+and the data logging should be able to occur anywhere.</p>
+<p>The code is on <a href="https://github.com/karlduino/CO2monitorWifi">github</a>,
+along with <a href="https://karlduino.org/CO2monitorWifi/docs/instructions.html">assembly
+instructions</a>.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="https://creativecommons.org/licenses/by/4.0/legalcode"><img src="../../../../images/cc-by.svg" height="28" style="vertical-align:middle;"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="../../../../js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
