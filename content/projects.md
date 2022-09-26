@@ -14,7 +14,7 @@ date: "2022-09-05T19:10:00-05:00"
   [ESP32](https://synthiam.com/Support/Hardware/Esp32-DevKit-v1) with
   wifi to automatically post data to a google spreadsheet
 
-  ![Looping video of six CO2 monitors with blinking blue lights, automatically posting data to a google spreadsheet](https://karlduino.org/images/wifi_co2_monitor.gif)
+  ![Looping video of six CO2 monitors with blinking blue lights, automatically posting data to a google spreadsheet](https://karlduino.org/images/wifi_co2_monitors.gif)
 
 - [Arduino/Xbee garage door indicator](https://karlduino.wordpress.com/2012/09/23/arduinoxbee-garage-door-indicator/)
 
